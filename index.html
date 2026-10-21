@@ -83,6 +83,9 @@
         .q-text { font-size: 13.5px; font-weight: 700; margin-bottom: 14px; line-height: 1.6; background: #f8fafc; padding: 14px; border-radius: 12px; border: 1px solid #e2e8f0; color: #0f172a; white-space: pre-line; position: relative; }
         .watermark { position: absolute; top: 10px; right: 10px; width: 50px; height: 50px; border-radius: 50%; opacity: 0.15; pointer-events: none; }
         
+        /* 밑줄 친 부분(빨간색 및 밑줄 스타일) */
+        .q-text ins, .review-opt ins { color: #dc2626; font-weight: 800; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 2px; }
+
         .exam-img-wrap { text-align: center; margin-bottom: 10px; }
         .exam-img { width: 100%; max-height: 160px; object-fit: contain; border-radius: 8px; cursor: zoom-in; border: 1px solid #cbd5e1; background: #fff; }
         .img-hint { font-size: 10px; color: #0284c7; font-weight: 800; margin-top: 3px; }
@@ -222,8 +225,8 @@
             <div id="review-content" style="padding: 12px; max-height: 70vh; overflow-y: auto;"></div>
             <div class="action-container" style="padding: 10px 12px 12px 12px;"><button class="btn-submit" onclick="closeReview()">ရလဒ်စာရွက်သို့ ပြန်သွားမည်</button></div>
         </div>
-    </div>
-        <script>
+                </div>
+                    <script>
     const allQuestions = [
         {
             q: "[1 ~ 4] 다음 그림을 보고 맞는 단어나 문장을 고르십시오.\n\n1. <div class='exam-img-wrap'><img src='https://i.imgur.com/io9NIKk.jpeg' class='exam-img' onclick='openImageModal(this.src)'><div class='img-hint'>🔍 (ပုံကိုနှိပ်၍ ချဲ့ကြည့်နိုင်သည်)</div></div><img src='https://i.imgur.com/WA5hd3D.jpeg' class='watermark'>",
@@ -239,14 +242,14 @@
         },
         {
             q: "4. <div class='exam-img-wrap'><img src='https://i.imgur.com/nTI78hi.jpeg' class='exam-img' onclick='openImageModal(this.src)'><div class='img-hint'>🔍 (ပုံကိုနှိပ်၍ ချဲ့ကြည့်နိုင်သည်)</div></div><img src='https://i.imgur.com/WA5hd3D.jpeg' class='watermark'>",
-            a: ["C \\rightarrow B \\rightarrow A", "B \\rightarrow C \\rightarrow A", "A \\rightarrow B \\rightarrow C", "A \\rightarrow C \\rightarrow B"], c: 2
+            a: ["C → B → A", "B → C → A", "A → B → C", "A → C → B"], c: 2
         },
         {
-            q: "[5 ~ 6] 다음 중 밑줄 친 부분이 맞는 것은 무엇입니까?\n\n5. ① 국자로 국을 떠요.\n② 주전자로 밥을 해요.\n③ 칼로 옷을 다림질해요.\n④ 밥솥으로 달걀을 볶아요.\n<img src='https://i.imgur.com/WA5hd3D.jpeg' class='watermark'>",
+            q: "[5 ~ 6] 다음 중 밑줄 친 부분이 맞는 것은 무엇입니까?\n\n5. ① 국자로 <ins>국을 떠요.</ins>\n② 주전자로 <ins>밥을 해요.</ins>\n③ 칼로 옷을 <ins>다림질해요.</ins>\n④ 밥솥으로 <ins>달걀을 볶아요.</ins>\n<img src='https://i.imgur.com/WA5hd3D.jpeg' class='watermark'>",
             a: ["국자로 국을 떠요.", "주전자로 밥을 해요.", "칼로 옷을 다림질해요.", "밥솥으로 달걀을 볶아요."], c: 0
         },
         {
-            q: "6. ① 피곤하니까 잠깐 쉬웠다가 일합시다.\n② 수라 씨는 항상 인사할면서 출근해요.\n③ 드르가 씨는 웃우면서 손님을 안내해요.\n④ 시끄러우니까 기계 옆에서는 전화하지 마세요.\n<img src='https://i.imgur.com/WA5hd3D.jpeg' class='watermark'>",
+            q: "6. ① 피곤하니까 잠깐 <ins>쉬웠다가</ins> 일합시다.\n② 수라 씨는 항상 <ins>인사할면서</ins> 출근해요.\n③ 드르가 씨는 <ins>웃우면서</ins> 손님을 안내해요.\n④ <ins>시끄러우니까</ins> 기계 옆에서는 전화하지 마세요.\n<img src='https://i.imgur.com/WA5hd3D.jpeg' class='watermark'>",
             a: ["피곤하니까 잠깐 쉬웠다가 일합시다.", "수라 씨는 항상 인사할면서 출근해요.", "드르가 씨는 웃우면서 손님을 안내해요.", "시끄러우니까 기계 옆에서는 전화하지 마세요."], c: 3
         },
         {
@@ -306,7 +309,7 @@
             a: ["다음 주부터 3일 동안 휴가를 쉽니다.", "고향에서 여름휴가를 보낼 예정입니다.", "휴가가 짧아서 친척들을 만나지 못할 것 같습니다.", "이번 주에 미리 할아버지 일을 도와드릴 계획입니다."], c: 1
         }
     ];
-              let currentIndex = 0;
+        let currentIndex = 0;
     let userAns = [];
     let studentName = "";
     let studentPassport = "";
